@@ -3,7 +3,7 @@ import React from 'react';
 const Footer = () => {
     return (
         <div>
-            <h1>All Copyright reserved for Dregon News.com</h1>
+           <h5 className='text-center'><small>All Copyright reserved for Dregon News.com</small></h5>
         </div>
     );
 };
