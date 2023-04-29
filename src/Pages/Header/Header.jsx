@@ -3,6 +3,7 @@ import logo from '../../assets/logo.png'
 import moment from 'moment';
 import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import Marquee from "react-fast-marquee";
+import { Link } from 'react-router-dom';
 
 const Header = () => {
     return (
@@ -25,7 +26,7 @@ const Header = () => {
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="mx-auto">
-                            <Nav.Link href="#features">HOME</Nav.Link>
+                            <Nav.Link href="#features"><Link to='/' className='text-decoration-none'>HOME</Link></Nav.Link>
                             <Nav.Link href="#pricing">ABOUT</Nav.Link>
                             <Nav.Link href="#pricing">CAREER</Nav.Link>
                             

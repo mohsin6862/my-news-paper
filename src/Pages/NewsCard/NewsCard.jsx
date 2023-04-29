@@ -6,7 +6,6 @@ import { FaBookmark, FaEye, FaGoogle, FaRegStar, FaShare, FaShareAlt, FaStar, } 
 import ReactStars from "react-rating-stars-component";
 const NewsCard = ({singleNews}) => {
     const {_id,title,details,image_url,author,rating,total_view}=singleNews;
-    console.log(singleNews)
     return (
         <Card className="mb-4">
         <Card.Header className='d-flex align-items-center'> 

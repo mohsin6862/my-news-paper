@@ -7,7 +7,7 @@ const Catagory = () => {
     const {id}= useParams()
     return (
         <div>
-            <h1>{catagoryNews.length} News in this is Catagory  </h1>
+            {id && <h1>{catagoryNews.length} News in this is Catagory  </h1>}
 
             {
                 catagoryNews.map(singleNews => <NewsCard
