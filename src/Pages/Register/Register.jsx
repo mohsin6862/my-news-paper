@@ -1,13 +1,34 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Providers/AuthProvider';
 
 
 const Register = () => {
+    const {createUser}= useContext(AuthContext);
+    const handleRegister = (event)=>{
+        event.preventDefault()
+        const form = event.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const photo = form.photo.value;
+        const password= form.password.value;
+        const confirm= form.confirm.value; 
+        console.log(name,photo, email,password,confirm)
+        createUser(email,password)
+        .then(result=>{
+            const createdUser = result.user;
+            console.log(createdUser)
+       
+        })
+        .catch(error=>{
+            console.log(error.message)
+        })
+    }
     return (
         <Container className='w-50 '>
 
-        <Form>
+        <Form onSubmit={handleRegister}>
               <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Your Name</Form.Label>
                 <Form.Control type="text" name='name' placeholder="Your name" />
@@ -20,17 +41,17 @@ const Register = () => {
               </Form.Group>
               <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
-                <Form.Control type="email" placeholder="Enter email" />
+                <Form.Control type="email" name='email' placeholder="Enter email" />
                 
               </Form.Group>
         
               <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Label>Password</Form.Label>
-                <Form.Control type="password" placeholder="Password" />
+                <Form.Control type="password" name='password' placeholder="Password" />
               </Form.Group>
               <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Label>Confirm Password</Form.Label>
-                <Form.Control type="password" placeholder="Confirm Password" />
+                <Form.Control type="password" name='confirm' placeholder="Confirm Password" />
               </Form.Group>
               <Form.Group className="mb-3" controlId="formBasicCheckbox">
                 <Form.Check type="checkbox" label="Remember me" />
