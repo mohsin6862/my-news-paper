@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import logo from '../../assets/logo.png'
 import moment from 'moment';
 import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import Marquee from "react-fast-marquee";
 import { Link } from 'react-router-dom';
+import { FaUser } from 'react-icons/fa';
+import { AuthContext } from '../../Providers/AuthProvider';
 
 const Header = () => {
+        
+    const {user} = useContext(AuthContext)
+
     return (
         <Container>
             <div className='text-center my-5'>
@@ -32,9 +37,9 @@ const Header = () => {
                             
                         </Nav>
                         <Nav className=''>
-                            <Nav.Link href="#deets">Profile</Nav.Link>
+                            {user && <Nav.Link href="#deets"><FaUser style={{fontSize:'2rem'}}></FaUser> {user.name}</Nav.Link>}
                             <Nav.Link eventKey={2} href="#memes">
-                            <Button variant="secondary">LogIn</Button>
+                            {user? <Button variant="secondary">Logout</Button> : <Button variant="secondary">Login</Button>}
                             </Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
