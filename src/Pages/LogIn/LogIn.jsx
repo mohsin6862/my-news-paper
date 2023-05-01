@@ -6,7 +6,7 @@ import Catagory from '../Catagory/Catagory';
 
 
 const LogIn = () => {
-    const {user,signIn}= useContext(AuthContext);
+    const {signIn}= useContext(AuthContext);
     const navigate = useNavigate()
     const location = useLocation()
     const from = location.state?.from?.pathname || '/catagory/0'
