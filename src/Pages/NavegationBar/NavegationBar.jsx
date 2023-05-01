@@ -2,10 +2,15 @@ import React, { useContext } from 'react';
 import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { FaUser } from 'react-icons/fa';
-import { AuthContext } from '../../Providers/AuthProvider';
+import { AuthContext } from '../../Providers/AuthProvider'
 
 const NavegationBar = () => {
-    const {user} = useContext(AuthContext)
+    const {user, Logout} = useContext(AuthContext)
+    const handleLogout=() =>{
+        Logout()
+    }    
+    
+    
     return (
         <Container>
             <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
@@ -20,9 +25,9 @@ const NavegationBar = () => {
                             
                         </Nav>
                         <Nav className=''>
-                            {user && <Nav.Link href="#deets"><FaUser style={{fontSize:'2rem'}}></FaUser> {user.name}</Nav.Link>}
+                            {user && <Nav.Link href="#deets"><FaUser style={{fontSize:'2rem'}}></FaUser> {user.email}</Nav.Link>}
                             <Nav.Link eventKey={2} href="#memes">
-                            {user? <Button variant="secondary">Logout</Button> : <Link to='/login'><Button variant="secondary" >Login</Button></Link> }
+                            {user? <Button variant="secondary" onClick={handleLogout}>Logout</Button> : <Link to='/login'><Button variant="secondary" >Login</Button></Link> }
                             </Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
