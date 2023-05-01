@@ -8,6 +8,7 @@ import LoginLayout from "../Layouts/LoginLayout";
 import LogIn from "../Pages/LogIn/LogIn";
 import Register from "../Pages/Register/Register";
 import PrivateRoute from "../PrivateRoute";
+import Trems from "../Pages/Trems";
 
 const router = createBrowserRouter([
     {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
             {
                 path:'/register',
                 element:<Register></Register>
+            },
+            {
+                path:'/terms',
+                element: <Trems></Trems>
             }
         ]
 
